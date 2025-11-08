@@ -1,0 +1,20 @@
+<div class="card flex justify-center">
+    <div>
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" pInputText [(ngModel)]="form.nome" />
+    </div>
+    <div>
+        <label for="sobrenome">Sobrenome</label>
+        <input id="sobrenome" type="text" pInputText [(ngModel)]="form.sobrenome" />
+    </div>
+    <div>
+        <label for="cpf">Cpf</label>
+        <p-inputmask id="cpf" mask="999.999.999-99" [(ngModel)]="form.cpf" placeholder="999.999.999-99" />
+    </div>
+    <div>
+        <label for="datanascimento">Data de Nascimento</label>
+        <p-datepicker id="datanascimento" [(ngModel)]="form.dataNascimento" />
+    </div>
+    <p-button label="Salvar" icon="pi pi-user-plus" (click)="cadastrar()"/>
+
+</div>
