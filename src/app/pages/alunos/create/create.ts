@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { AlunoService } from '../../../services/aluno.service';
 import { AlunoRequest } from '../../../models/aluno.dto';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 })
 export class AlunoCreate {
   form: AlunoRequest;
+  @Output() alunoCadastrado = new EventEmitter<AlunoRequest>();
   constructor(private alunoService: AlunoService, private router:Router) {
     this.form = {
       nome: '', sobrenome: '', dataNascimento: null, cpf: ''
@@ -35,6 +36,4 @@ export class AlunoCreate {
     }
   })
 }
-
-
 }

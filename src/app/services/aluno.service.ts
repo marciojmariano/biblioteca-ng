@@ -15,6 +15,20 @@ export class AlunoService {
     return this.httpClient.get<AlunoResponse[]>(url)
   }
 
+  getById(id: number): Observable<AlunoResponse> {
+  return this.httpClient.get<AlunoResponse>(`https://api.franciscosensaulas.com/api/v1/escola/alunos/${id}`);
+}
+
+  delete(id: number): Observable<void> {
+    const url = `https://api.franciscosensaulas.com/api/v1/escola/alunos/${id}`
+    return this.httpClient.delete<void>(url)
+  }
+
+  update(id: number, form: AlunoRequest): Observable<void> {
+    const url = `https://api.franciscosensaulas.com/api/v1/escola/alunos/${id}`
+    return this.httpClient.put<void>(url, form)
+  }
+
   create(form: AlunoRequest): Observable<void> {
     const url = "https://api.franciscosensaulas.com/api/v1/escola/alunos"
     return this.httpClient.post<void>(url, form)

@@ -5,6 +5,7 @@ import { AlunoResponse } from '../../../models/aluno.dto';
 import { AlunoService } from '../../../services/aluno.service';
 import { ButtonModule } from 'primeng/button';
 import { RouterLink } from '@angular/router';
+import { AlunoCreate } from '../create/create';
 
 @Component({
   selector: 'app-list',
@@ -31,6 +32,16 @@ export class AlunoList {
 
   }
 
-
-
+  apagar(aluno: AlunoResponse) {
+    this.alunoService.delete(aluno.id).subscribe({
+      next: () => {
+        alert("Aluno apagado com sucesso!");
+        this.consultarAlunos(); // Atualiza a lista após a exclusão
+      },
+      error: erro => {
+        console.error(`Ocorreu um erro ao apagar o aluno! ${erro}`)
+        alert("Ocorreu um erro ao apagar o aluno!")
+      }
+    })
+  }
 }
