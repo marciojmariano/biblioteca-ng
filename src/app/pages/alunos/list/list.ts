@@ -6,7 +6,7 @@ import { AlunoService } from '../../../services/aluno.service';
 import { ButtonModule } from 'primeng/button';
 import { RouterLink } from '@angular/router';
 import { AlunoCreate } from '../create/create';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-list',
@@ -16,7 +16,7 @@ import { MessageService } from 'primeng/api';
 })
 export class AlunoList {
   alunos: AlunoResponse[] = [];
-  constructor(private alunoService: AlunoService, private messageService: MessageService) {
+  constructor(private alunoService: AlunoService, private confirmationService: ConfirmationService, private messageService: MessageService) {
   }
   ngOnInit(): void {
     this.consultarAlunos();
@@ -31,6 +31,29 @@ export class AlunoList {
       }
     })
 
+  }
+
+  confirmarParaApagar(event: Event, aluno: AlunoResponse) {
+
+    this.confirmationService.confirm({
+      target: event.target as EventTarget,
+      message: 'Deseja mesmo excluir?',
+      header: 'Ação perigosa!',
+      icon: 'pi pi-info-circle',
+      rejectLabel: 'Cancel',
+      rejectButtonProps: {
+        label: 'Cancelar',
+        severity: 'secondary',
+        outlined: true,
+      },
+      acceptButtonProps: {
+        label: 'Excluir',
+        severity: 'danger',
+      },
+      accept: () => {
+        this.apagar(aluno);
+      },
+    });
   }
 
   apagar(aluno: AlunoResponse) {

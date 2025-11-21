@@ -1,5 +1,5 @@
 <div class="card">
-    <p-button label="Cadastrar" icon="pi pi-user-plus" routerLink="/alunos/cadastro"/>
+    <p-button label="Cadastrar" icon="pi pi-user-plus" routerLink="/alunos/cadastro" />
     <p-table [value]="alunos" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template #header>
             <tr>
@@ -19,8 +19,9 @@
                 <td>{{ aluno.dataNascimento }}</td>
                 <td>{{ aluno.cpf }}</td>
                 <td>
-                    <p-button label="Alterar" icon="pi pi-refresh" routerLink="/alunos/alterar/{{aluno.id}}"/>
-                    <p-button label="Apagar" icon="pi pi-trash" (click)="apagar(aluno)"/>
+                    <p-button label="Alterar" icon="pi pi-refresh" routerLink="/alunos/alterar/{{aluno.id}}" />
+                    <p-button label="Apagar" icon="pi pi-trash" (click)="confirmarParaApagar($event, aluno)"
+                        severity="danger" [outlined]="true" />
                 </td>
             </tr>
         </ng-template>
