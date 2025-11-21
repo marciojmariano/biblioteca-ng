@@ -7,6 +7,7 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
 import { AlunoRequest, AlunoResponse } from '../../../models/aluno.dto';
 import { AlunoService } from '../../../services/aluno.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-alterar',
@@ -16,7 +17,7 @@ import { AlunoService } from '../../../services/aluno.service';
 })
 export class Alterar implements OnInit {
   form: AlunoRequest; id: number;
-  constructor(private alunoService: AlunoService, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private alunoService: AlunoService, private router: Router, private activatedRoute: ActivatedRoute, private messageService: MessageService) {
     this.form = {
       nome: '', sobrenome: '', dataNascimento: null, cpf: ''
     }
@@ -51,12 +52,12 @@ export class Alterar implements OnInit {
   alterar() {
     this.alunoService.update(this.id, this.form).subscribe({
       next: () => {
-        alert("Aluno alterado com sucesso!")
+        this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Aluno alterado com sucesso!', life: 3000 });
         this.router.navigate(['/alunos'])
       },
       error: erro => {
         console.log(`Ocorreu um erro ao alterar o aluno! ${erro}`)
-        alert("Ocorreu um erro ao alterar o aluno!")
+        this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Ocorreu um erro ao alterar o aluno!', life: 3000 });
 
       }
     })

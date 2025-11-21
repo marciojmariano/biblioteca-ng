@@ -6,6 +6,7 @@ import { AlunoService } from '../../../services/aluno.service';
 import { ButtonModule } from 'primeng/button';
 import { RouterLink } from '@angular/router';
 import { AlunoCreate } from '../create/create';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-list',
@@ -15,7 +16,7 @@ import { AlunoCreate } from '../create/create';
 })
 export class AlunoList {
   alunos: AlunoResponse[] = [];
-  constructor(private alunoService: AlunoService) {
+  constructor(private alunoService: AlunoService, private messageService: MessageService) {
   }
   ngOnInit(): void {
     this.consultarAlunos();
@@ -35,12 +36,12 @@ export class AlunoList {
   apagar(aluno: AlunoResponse) {
     this.alunoService.delete(aluno.id).subscribe({
       next: () => {
-        alert("Aluno apagado com sucesso!");
+        this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Aluno excluído com sucesso!', life: 3000 });
         this.consultarAlunos(); // Atualiza a lista após a exclusão
       },
       error: erro => {
         console.error(`Ocorreu um erro ao apagar o aluno! ${erro}`)
-        alert("Ocorreu um erro ao apagar o aluno!")
+        this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Ocorreu um erro ao excluir o aluno!', life: 3000 });
       }
     })
   }
