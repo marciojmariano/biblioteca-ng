@@ -12,7 +12,7 @@ import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-create',
-  imports: [FormsModule, InputTextModule, InputMaskModule, DatePickerModule, ButtonModule, Toast],
+  imports: [FormsModule, InputTextModule, InputMaskModule, DatePickerModule, ButtonModule],
   templateUrl: './create.html',
   styleUrl: './create.scss'
 })

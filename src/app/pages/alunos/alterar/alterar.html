@@ -1,21 +1,22 @@
-<div class="card flex justify-center">
+<div class="card flex justify-center flex-column p-2 gap-2">
     <div>
         <label for="nome">Nome</label>
-        <input id="nome" type="text" pInputText [(ngModel)]="form.nome" />
+        <input id="nome" type="text" pInputText [(ngModel)]="form.nome" fluid />
     </div>
     <div>
         <label for="sobrenome">Sobrenome</label>
-        <input id="sobrenome" type="text" pInputText [(ngModel)]="form.sobrenome" />
+        <input id="sobrenome" type="text" pInputText [(ngModel)]="form.sobrenome" fluid />
     </div>
     <div>
         <label for="cpf">Cpf</label>
-        <p-inputmask id="cpf" mask="999.999.999-99" [(ngModel)]="form.cpf" placeholder="999.999.999-99" />
+        <p-inputmask id="cpf" mask="999.999.999-99" [(ngModel)]="form.cpf" placeholder="999.999.999-99" fluid />
     </div>
     <div>
         <label for="datanascimento">Data de Nascimento</label>
-        <p-datepicker id="datanascimento" [(ngModel)]="form.dataNascimento" [dateFormat]="'mm-dd-yy'"
-            [showIcon]="true" />
+        <p-datepicker id="datanascimento" [(ngModel)]="form.dataNascimento" [dateFormat]="'dd/mm/yy'" [showIcon]="true"
+            fluid />
     </div>
-    <p-button label="Salvar" icon="pi pi-check" (click)="alterar()" />
-
+    <div class="flex justify-content-end flex-wrap mt-2">
+        <p-button label="Salvar" icon="pi pi-check" (click)="alterar()" />
+    </div>
 </div>

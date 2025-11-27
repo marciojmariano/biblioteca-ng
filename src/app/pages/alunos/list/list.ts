@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { AlunoResponse } from '../../../models/aluno.dto';
@@ -10,7 +10,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-list',
-  imports: [TableModule, CommonModule, ButtonModule, RouterLink],
+  imports: [TableModule, CommonModule, ButtonModule, RouterLink, DatePipe],
   templateUrl: './list.html',
   styleUrl: './list.scss',
 })

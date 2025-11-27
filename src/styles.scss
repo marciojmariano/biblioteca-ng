@@ -1,4 +1,6 @@
 @import "primeicons/primeicons.css";
+@import "primeflex/primeflex.scss";
+
 html {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
         Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
@@ -13,4 +15,37 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: light-dark(var(--p-surface-0), var(--p-surface-950));
+}
+
+/* Centraliza cabeçalhos */
+.p-datatable-thead>tr>th {
+    text-align: center;
+}
+
+/* Centraliza div interno dos headers (sort + texto) */
+.p-datatable-thead th>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    gap: .3rem;
+}
+
+/* Centraliza coluna de ações (header + body) */
+.p-datatable-thead>tr>th:last-child,
+.p-datatable-tbody>tr>td:last-child {
+    text-align: center;
+}
+
+/* Centraliza Data de Nascimento (3ª coluna) */
+.p-datatable-tbody > tr > td:nth-child(3),
+.p-datatable-thead > tr > th:nth-child(3) {
+    text-align: center;
+}
+
+/* Centraliza CPF (4ª coluna) */
+.p-datatable-tbody > tr > td:nth-child(4),
+.p-datatable-thead > tr > th:nth-child(4) {
+    text-align: center;
 }
