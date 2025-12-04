@@ -5,7 +5,6 @@ import { AlunoResponse } from '../../../models/aluno.dto';
 import { AlunoService } from '../../../services/aluno.service';
 import { ButtonModule } from 'primeng/button';
 import { RouterLink } from '@angular/router';
-import { AlunoCreate } from '../create/create';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
