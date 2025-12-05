@@ -13,13 +13,13 @@ export class TransporteService {
   constructor(
     private httpClient: HttpClient
   ) {
-    this.baseUrl = `${environment.apiUrl}/trabalho/transporte`
+    this.baseUrl = `${environment.apiUrl}/trabalho/transportes`
   }
 
   getAll(): Observable<TransporteResponse[]> {
     return this.httpClient.get<TransporteResponse[]>(this.baseUrl)
   }
-
+  
   getById(id: number): Observable<TransporteResponse> {
     const url: string = `${this.baseUrl}/${id}`;
     return this.httpClient.get<TransporteResponse>(url);
