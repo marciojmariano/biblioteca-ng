@@ -32,7 +32,6 @@ export class TransporteList {
   }
 
   confirmarParaApagar(event: Event, transporte: TransporteResponse) {
-
     this.confirmationService.confirm({
       target: event.target as EventTarget,
       message: 'Deseja mesmo excluir? Essa ação é irreversível',
