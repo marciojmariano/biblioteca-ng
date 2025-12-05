@@ -1,1 +1,30 @@
-<p>create works!</p>
+<div class="card flex justify-center flex-column p-2 gap-2">
+    <div>
+        <label for="veiculo">Veículo</label>
+        <input id="veiculo" type="text" pInputText [(ngModel)]="form.veiculo" fluid />
+    </div>
+    <div>
+        <label for="motorista">Motorista</label>
+        <input id="motorista" type="text" pInputText [(ngModel)]="form.motorista" fluid />
+    </div>
+    <div>
+        <label for="carga">Carga</label>
+        <input id="carga" type="text" pInputText [(ngModel)]="form.carga"  fluid/>
+    </div>
+    <div>
+        <label for="pesoCarga">Peso da Carga</label>
+        <p-inputnumber id="pesoCarga" mode="decimal" [(ngModel)]="form.pesoCarga" fluid [useGrouping]="false" [min]="1"/>
+    </div>
+    <div>
+        <label for="destino">Destino</label>
+        <input id="destino" type="text" pInputText [(ngModel)]="form.destino"  fluid/>
+    </div>
+    <div>
+        <label for="tempoEstimadoHoras">Tempo Estimado de Transporte</label>
+        <p-inputnumber id="tempoEstimadoHoras" mode="decimal" [(ngModel)]="form.tempoEstimadoHoras" fluid [min]="0"/>
+    </div>
+    <div>
+        <p-button class="flex justify-content-end flex-wrap mt-2" label="Salvar" icon="pi pi-check" (click)="cadastrar()" />
+    </div>
+
+</div>

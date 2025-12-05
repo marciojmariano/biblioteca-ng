@@ -9,7 +9,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-list',
-  imports: [TableModule, CommonModule, ButtonModule, RouterLink, DatePipe],
+  imports: [TableModule, CommonModule, ButtonModule, RouterLink],
   templateUrl: './list.html',
   styleUrl: './list.scss',
 })
@@ -26,7 +26,7 @@ export class TransporteList {
       next: transportes => this.transportes = transportes,
       error: erro => {
         console.error(`Ocorreu um erro ao carregar a lista de tranportes! ${erro}`)
-        alert("Ocorreu um erro ao consultar a lista de transportes!")
+        alert("Ocorreu um erro ao consultar a lista de transportes!!")
       }
     })
   }

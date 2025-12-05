@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './alter.html',
   styleUrl: './alter.scss',
 })
-export class Alter {
+export class TransporteAlter {
 
 }

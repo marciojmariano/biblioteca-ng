@@ -1,1 +1,45 @@
-<p>list works!</p>
+<div class="card">
+    <div class="flex justify-content-end flex-wrap mt-2 mr-2"> <p-button label="Cadastrar" icon="pi pi-user-plus"
+            routerLink="/transporte/cadastro" /> </div>
+    <div class="mt-2 mr-2 ml-2"> <p-table [value]="transportes" [tableStyle]="{ 'min-width': '50rem' }" [rows]="5"
+            [paginator]="true" [rowsPerPageOptions]="[5, 10, 20]"> <ng-template #header>
+                <tr>
+                    <th pSortableColumn="veiculo">
+                        <div class="flex items-center gap-1 justify-center"> Veículo<p-sortIcon field="veiculo" /> </div>
+                    </th>
+                    <th pSortableColumn="motorista">
+                        <div class="flex items-center gap-1 justify-center"> Motorista<p-sortIcon
+                                field="motorista" /> </div>
+                    </th>
+                    <th pSortableColumn="carga">
+                        <div class="flex justify-center items-center gap-1"> Carga<p-sortIcon
+                                field="carga" /> </div>
+                    </th>
+                    <th pSortableColumn="pesoCarga">
+                        <div class="flex justify-center items-center gap-1"> Peso da Carga<p-sortIcon field="pesoCarga" /> </div>
+                    </th>
+                    <th pSortableColumn="destino">
+                        <div class="flex justify-center items-center gap-1"> Destino<p-sortIcon field="destino" /> </div>
+                    </th>
+                    <th pSortableColumn="tempoEstimadoHoras">
+                        <div class="flex justify-center items-center gap-1"> Tempo Estimado (Hrs)<p-sortIcon field="tempoEstimadoHoras" /> </div>
+                    </th>
+                    <th pSortableColumn="acoes">
+                        <div class="flex justify-center"> Ações </div>
+                    </th>
+                </tr>
+            </ng-template> <ng-template #body let-transporte>
+                <tr>
+                    <td>{{ transporte.veiculo }}</td>
+                    <td>{{ transporte.motorista }}</td>
+                    <td>{{ transporte.carga }}</td>
+                    <td>{{ transporte.pesoCarga }}</td>
+                    <td>{{ transporte.destino }}</td>
+                    <td>{{ transporte.tempoEstimadoHoras }}</td>
+                    <td> <p-button class="mr-1" label="Editar" icon="pi pi-pencil"
+                            routerLink="/transporte/alter/{{transporte.id}}" severity="warn" /> <p-button label="Excluir"
+                            icon="pi pi-trash" (click)="confirmarParaApagar($event, transporte)" severity="danger"
+                            [outlined]="true" /> </td>
+                </tr>
+            </ng-template> </p-table> </div>
+</div>
